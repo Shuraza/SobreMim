@@ -1,0 +1,293 @@
+:root {
+    --sky: #070a17;
+    --sky-2: #0d1226;
+    /* fundo da página */
+
+    --panel: #111733;
+    /* fundo dos cards */
+
+    --line: #222b52;
+    /* bordas */
+
+    --text: #e7e9f5;
+    /* texto principal */
+
+    --muted: #9aa1c4;
+    /* texto secundário */
+
+    --star: #ffcf2e;
+    /* amarelo da estrela*/
+
+    --bsod: #2541d6;
+    /* tela azul */
+
+    --ok: #7ee2a8;
+    /* verde do terminal */
+
+
+    --f-display: "Unbounded", system-ui, sans-serif;
+    /* títulos */
+
+    --f-body: "IBM Plex Sans", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+    /* texto */
+
+
+    --space: 1.25rem;
+    --radius: 16px;
+    color-scheme: dark;
+    /* alguns jaustes */
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--sky);
+}
+
+body {
+    margin: 0;
+    background: var(--sky);
+    color: var(--text);
+    font-family: var(--f-body);
+    line-height: 1.55;
+
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+}
+
+
+a {
+    color: inherit;
+    /* isso aq faz ficar com a cor do texto em volta */
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Quem navega com teclado (Tab)*/
+:focus-visible {
+    outline: 2px solid var(--star);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+
+
+h1,
+h2 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    margin: 0;
+}
+
+h1 {
+    /* clamp(mínimo, ideal, máximo) */
+    font-size: clamp(1.9rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: 1.125rem;
+}
+
+p {
+    margin: 0;
+}
+
+
+.topbar {
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+    max-width: 928px;
+    margin: 8px auto 0;
+    padding: 8px 8px 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--sky) 80%, transparent);
+    backdrop-filter: blur(8px);
+    /* desfoca o que passa por trás e fica bonito */
+}
+
+
+@media (max-width: 959px) {
+    .topbar {
+        margin-inline: 16px;
+    }
+}
+
+.brand {
+    font-family: var(--f-display);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--star);
+}
+
+.topbar ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+}
+
+.topbar nav a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 9px;
+    font-family: var(--f-mono);
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.topbar nav a:hover {
+    color: var(--text);
+    background: var(--panel);
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+    display: grid;
+    gap: var(--space);
+}
+
+
+main section {
+    scroll-margin-top: 80px;
+}
+
+.footer {
+    display: grid;
+    gap: 4px;
+    padding: 8px 16px 40px;
+    text-align: center;
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+    font-family: var(--f-mono);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: border-color 0.15s;
+    /* a borda muda de cor suavemente */
+}
+
+.btn b {
+    color: var(--ok);
+    font-weight: 500;
+}
+
+.btn:hover {
+    border-color: var(--star);
+}
+
+
+.chip {
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--f-mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+}
+
+.chips,
+.links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    /* gradiente na diagonal */
+    background: linear-gradient(160deg, var(--sky-2), color-mix(in srgb, var(--sky) 70%, var(--bsod) 30%));
+}
+
+.hero-avatar {
+    width: 112px;
+    border-radius: 50%;
+    border: 3px solid var(--star);
+    /* box-shadow sem desfoque vira uma "segunda borda" transparente */
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--star) 15%, transparent);
+}
+
+.hero-text {
+    display: grid;
+    gap: 12px;
+}
+
+.hero-label {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.hero-bio {
+    max-width: 58ch;
+}
+
+.twinkle {
+    color: var(--star);
+}
+
+
+
+@media (min-width: 760px) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .hero-avatar {
+        width: 148px;
+        flex-shrink: 0;
+    }
+}

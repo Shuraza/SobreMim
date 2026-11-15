@@ -1,0 +1,12 @@
+# segredos (chaves de API nunca vão pro GitHub)
+.env
+
+# Python (o robô dos dados, mais pra frente)
+.venv/
+__pycache__/
+
+# lixo do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+_backup/
